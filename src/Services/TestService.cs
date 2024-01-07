@@ -6,12 +6,10 @@ namespace Tasky.Services;
 public class TestService
 {
     private readonly DiscordSocketClient _discord;
-    private readonly IServiceProvider _services;
 
-    public TestService(DiscordSocketClient discord, IServiceProvider services)
+    public TestService(DiscordSocketClient discord)
     {
         _discord = discord;
-        _services = services;
 
         _discord.MessageReceived += OnMessageReceivedAsync;
     }

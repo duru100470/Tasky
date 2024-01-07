@@ -1,5 +1,6 @@
 ﻿using Discord;
 using Discord.Commands;
+using Discord.Interactions;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,13 +24,14 @@ public class Program
             var client = services.GetRequiredService<DiscordSocketClient>();
 
             client.Log += OnClientLogReceived;
-            services.GetRequiredService<CommandService>().Log += OnClientLogReceived;
+            services.GetRequiredService<InteractionService>().Log += OnClientLogReceived;
 
-            var token = services.GetRequiredService<IConfiguration>().GetSection("Environments")["Token"]
+            var token = services.GetRequiredService<IConfiguration>().GetRequiredSection("Environments")["Token"]
                 ?? throw new InvalidOperationException("Token was not found.");
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
 
+            await services.GetRequiredService<CommandHandlingService>().InitializeAsync();
             services.GetRequiredService<TestService>();
 
             await Task.Delay(Timeout.Infinite);
@@ -60,8 +62,8 @@ public class Program
                 LogLevel = LogSeverity.Verbose
             })
             .AddSingleton<DiscordSocketClient>()
-            .AddSingleton<CommandService>()
-            .AddSingleton<HttpClient>()
+            .AddSingleton<InteractionService>()
+            .AddSingleton<CommandHandlingService>()
             .AddSingleton<TestService>()
             .BuildServiceProvider();
     }
