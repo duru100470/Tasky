@@ -2,9 +2,8 @@ namespace Tasky.Models;
 
 public class Config
 {
-    public string GuildID = "";
-    public string ChannelID = "";
-    public DateTime Time;
-    public bool IgnoreWeekend;
-    public bool IgnoreHoliday;
+    public ulong ChannelID = 0;
+    public DateTime Time = DateTime.Today.AddHours(10);
+    public bool IgnoreWeekend = false;
+    public bool IgnoreHoliday = false;
 }

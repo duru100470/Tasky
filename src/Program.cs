@@ -63,6 +63,7 @@ public class Program
             })
             .AddSingleton<DiscordSocketClient>()
             .AddSingleton<InteractionService>()
+            .AddSingleton<IConfigStorage, InMemoryConfigStorage>()
             .AddSingleton<CommandHandlingService>()
             .AddSingleton<TestService>()
             .BuildServiceProvider();
