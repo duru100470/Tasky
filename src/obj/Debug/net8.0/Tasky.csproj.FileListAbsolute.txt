@@ -1,0 +1,15 @@
+F:\Git_workspace\Tasky\src\bin\Debug\net8.0\Tasky.exe
+F:\Git_workspace\Tasky\src\bin\Debug\net8.0\Tasky.deps.json
+F:\Git_workspace\Tasky\src\bin\Debug\net8.0\Tasky.runtimeconfig.json
+F:\Git_workspace\Tasky\src\bin\Debug\net8.0\Tasky.dll
+F:\Git_workspace\Tasky\src\bin\Debug\net8.0\Tasky.pdb
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\Tasky.GeneratedMSBuildEditorConfig.editorconfig
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\Tasky.AssemblyInfoInputs.cache
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\Tasky.AssemblyInfo.cs
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\Tasky.csproj.CoreCompileInputs.cache
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\Tasky.sourcelink.json
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\Tasky.dll
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\refint\Tasky.dll
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\Tasky.pdb
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\Tasky.genruntimeconfig.cache
+F:\Git_workspace\Tasky\src\obj\Debug\net8.0\ref\Tasky.dll
