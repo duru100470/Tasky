@@ -33,6 +33,7 @@ public class Program
 
             await services.GetRequiredService<CommandHandlingService>().InitializeAsync();
             services.GetRequiredService<TestService>();
+            services.GetRequiredService<TaskyThreadCreator>().Initialize();
 
             await Task.Delay(Timeout.Infinite);
         }
@@ -66,6 +67,7 @@ public class Program
             .AddSingleton<IConfigStorage, InMemoryConfigStorage>()
             .AddSingleton<CommandHandlingService>()
             .AddSingleton<TestService>()
+            .AddSingleton<TaskyThreadCreator>()
             .BuildServiceProvider();
     }
 }
