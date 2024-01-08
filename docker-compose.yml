@@ -5,3 +5,5 @@ services:
     image: tasky
     container_name: tasky
     restart: unless-stopped
+    environment:
+      TZ: "Asia/Seoul"
