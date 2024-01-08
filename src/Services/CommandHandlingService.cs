@@ -34,9 +34,18 @@ public class CommandHandlingService
 
     private async Task ReadyAsync()
     {
-        var guild = _configuration.GetRequiredSection("Environments")["TestServer"];
-        await _commands.RegisterCommandsToGuildAsync(Convert.ToUInt64(guild), true);
-        // await _handler.RegisterCommandsGloballyAsync(true);
+        var isDebug = _configuration.GetRequiredSection("Environments")["IsDebug"];
+        if (Convert.ToBoolean(isDebug))
+        {
+            var guild = _configuration.GetRequiredSection("Environments")["TestServer"];
+            await _commands.RegisterCommandsToGuildAsync(Convert.ToUInt64(guild), true);
+            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss") + " Environment DEVELOPMENT");
+        }
+        else
+        {
+            await _commands.RegisterCommandsGloballyAsync(true);
+            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss") + " Environment PRODUCTION");
+        }
     }
 
     private async Task HandleInteraction(SocketInteraction interaction)

@@ -25,7 +25,7 @@ public class TaskyThreadCreator
     {
         Thread thread = new Thread(TimerFunction);
         thread.Start();
-        Console.WriteLine("Timer starts!");
+        Console.WriteLine(DateTime.Now.ToString("HH:mm:ss") + " Timer       Ready");
     }
 
     private async Task CreateThread()
