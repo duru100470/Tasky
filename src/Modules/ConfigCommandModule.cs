@@ -37,6 +37,7 @@ public class ConfigCommandModule : InteractionModuleBase<SocketInteractionContex
             if (configs.TryGetConfig(guild, out var config) && config != null)
             {
                 config.ChannelID = channelId;
+                configs.SaveChanges();
             }
             else
             {
@@ -65,6 +66,7 @@ public class ConfigCommandModule : InteractionModuleBase<SocketInteractionContex
             if (configs.TryGetConfig(guild, out var config) && config != null)
             {
                 config.Time = DateTime.Today.AddHours(hour);
+                configs.SaveChanges();
             }
             else
             {
@@ -87,6 +89,7 @@ public class ConfigCommandModule : InteractionModuleBase<SocketInteractionContex
             if (configs.TryGetConfig(guild, out var config) && config != null)
             {
                 config.IgnoreWeekend = ignore;
+                configs.SaveChanges();
             }
             else
             {
@@ -109,6 +112,7 @@ public class ConfigCommandModule : InteractionModuleBase<SocketInteractionContex
             if (configs.TryGetConfig(guild, out var config) && config != null)
             {
                 config.IgnoreHoliday = ignore;
+                configs.SaveChanges();
             }
             else
             {
