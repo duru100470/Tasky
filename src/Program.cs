@@ -63,7 +63,8 @@ public class Program
             })
             .AddSingleton<DiscordSocketClient>()
             .AddSingleton<InteractionService>()
-            .AddSingleton<IConfigStorage, InMemoryConfigStorage>()
+            .AddSingleton<IConfigStorage, JsonConfigStorage>()
+            .AddTransient<HolidayInfoLoader>()
             .AddSingleton<CommandHandlingService>()
             .AddSingleton<TaskyThreadCreator>()
             .BuildServiceProvider();

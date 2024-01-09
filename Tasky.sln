@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasky", "src\Tasky.csproj", "{B9539C15-79F5-49C7-8E40-93354CD48A92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskyTest", "test\TaskyTest.csproj", "{6C7C239E-40A2-4616-AF2E-1E0FCF92C185}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{B9539C15-79F5-49C7-8E40-93354CD48A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9539C15-79F5-49C7-8E40-93354CD48A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9539C15-79F5-49C7-8E40-93354CD48A92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C7C239E-40A2-4616-AF2E-1E0FCF92C185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C7C239E-40A2-4616-AF2E-1E0FCF92C185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C7C239E-40A2-4616-AF2E-1E0FCF92C185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C7C239E-40A2-4616-AF2E-1E0FCF92C185}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -6,13 +6,15 @@ namespace Tasky.Services;
 public class TaskyThreadCreator
 {
     private readonly DiscordSocketClient _discord;
+    private readonly HolidayInfoLoader _holiday;
     private readonly IConfigStorage _storage;
     private int _hour;
 
-    public TaskyThreadCreator(DiscordSocketClient discord, IConfigStorage storage)
+    public TaskyThreadCreator(DiscordSocketClient discord, IConfigStorage storage, HolidayInfoLoader holiday)
     {
         _discord = discord;
         _storage = storage;
+        _holiday = holiday;
         _hour = DateTime.Now.Hour;
     }
 
@@ -36,6 +38,12 @@ public class TaskyThreadCreator
         {
             if (_storage.TryGetConfig(guild, out var config))
             {
+                if (config.IgnoreWeekend == false && (DateTime.Now.DayOfWeek == DayOfWeek.Sunday || DateTime.Now.DayOfWeek == DayOfWeek.Saturday))
+                    continue;
+
+                if (config.IgnoreHoliday == false && _holiday.IsHoliday(DateTime.Now))
+                    continue;
+
                 if (config.Time.Hour == _hour)
                 {
                     var channel = _discord.GetChannel(config.ChannelID) as ITextChannel;
