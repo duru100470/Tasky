@@ -6,7 +6,7 @@ namespace Tasky.Services;
 public class HolidayInfoLoader
 {
     private readonly IConfiguration _configure;
-    private dynamic[] _data;
+    private HolidayInfo[] _data;
     private string _filename;
 
     public HolidayInfoLoader(IConfiguration configure)
@@ -19,7 +19,7 @@ public class HolidayInfoLoader
         {
             var jsonData = File.ReadAllText(_filename);
 
-            _data = JsonConvert.DeserializeObject<dynamic[]>(jsonData) ?? throw new InvalidDataException("Invalid json data");
+            _data = JsonConvert.DeserializeObject<HolidayInfo[]>(jsonData) ?? throw new InvalidDataException("Invalid json data");
         }
         catch (Exception e)
         {
@@ -31,14 +31,21 @@ public class HolidayInfoLoader
 
     public bool IsHoliday(DateTime now)
     {
-        foreach (var d in _data)
+        foreach (var info in _data)
         {
-            var date = new DateTime(d.solar_date).Date;
+            var date = Convert.ToDateTime(info.solar_date);
 
-            if (date == DateTime.Today)
+            if (date == now.Date)
                 return true;
         }
 
         return false;
+    }
+
+    private class HolidayInfo
+    {
+        public string memo = "";
+        public string num = "";
+        public string solar_date = "";
     }
 }
