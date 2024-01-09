@@ -22,4 +22,6 @@ public class InMemoryConfigStorage : IConfigStorage
         config = default;
         return false;
     }
+
+    public void SaveChanges() { }
 }
