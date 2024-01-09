@@ -36,6 +36,9 @@ public class TaskyThreadCreator
         {
             if (_storage.TryGetConfig(guild, out var config))
             {
+                if (config.IgnoreWeekend == false && (DateTime.Now.DayOfWeek == DayOfWeek.Sunday || DateTime.Now.DayOfWeek == DayOfWeek.Saturday))
+                    continue;
+
                 if (config.Time.Hour == _hour)
                 {
                     var channel = _discord.GetChannel(config.ChannelID) as ITextChannel;
